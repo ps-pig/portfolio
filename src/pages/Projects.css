@@ -1,0 +1,66 @@
+.projects-page { padding-bottom: 80px; }
+
+.filter-row {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px;
+}
+.filter-chip {
+  position: relative;
+  background: rgba(255,245,210,0.05);
+  border: 1px solid rgba(201,150,58,0.18);
+  color: var(--txt-muted);
+  font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 500;
+  padding: 8px 18px; border-radius: 50px; cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3), var(--inset-top);
+  overflow: hidden;
+}
+.filter-chip:hover:not(.on) {
+  border-color: rgba(201,150,58,0.32); color: var(--txt-secondary);
+}
+.filter-chip.on { color: #1a0e00; font-weight: 600; border-color: transparent; }
+.filter-bg {
+  position: absolute; inset: 0; border-radius: 50px;
+  background: var(--gold-grad);
+  box-shadow: 0 2px 14px rgba(160,100,20,0.4); z-index: 0;
+}
+.filter-label { position: relative; z-index: 1; }
+
+.projects-grid {
+  display: grid; grid-template-columns: 1fr; gap: 12px;
+}
+@media (min-width: 600px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.proj-card {
+  padding: 24px 22px; display: flex; flex-direction: column; gap: 10px;
+  transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s; cursor: default;
+}
+.proj-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-deep), var(--shadow-glow);
+  border-color: rgba(201,150,58,0.3);
+}
+.proj-top { display: flex; align-items: center; justify-content: space-between; }
+.proj-tag {
+  font-size: 0.64rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--g2); background: rgba(201,150,58,0.1);
+  border: 1px solid rgba(201,150,58,0.18); padding: 3px 10px; border-radius: 20px;
+}
+.proj-year { font-size: 0.74rem; color: var(--txt-muted); font-weight: 500; }
+.proj-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.02rem; font-weight: 600; color: var(--txt-primary); line-height: 1.3;
+}
+.proj-desc {
+  font-size: 0.835rem; color: var(--txt-secondary); line-height: 1.66; flex: 1;
+}
+.proj-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding-top: 12px; border-top: 1px solid rgba(201,150,58,0.07);
+}
+.tech-pill {
+  font-size: 0.7rem; color: var(--txt-muted);
+  background: rgba(255,245,210,0.05);
+  border: 1px solid rgba(201,150,58,0.12);
+  padding: 3px 10px; border-radius: 20px;
+}

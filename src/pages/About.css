@@ -1,0 +1,119 @@
+.about-page { padding-bottom: 80px; }
+.about-header { margin-bottom: 52px; }
+
+.about-grid {
+  display: flex; flex-direction: column; gap: 24px; margin-bottom: 72px;
+}
+@media (min-width: 768px) {
+  .about-grid { flex-direction: row; align-items: flex-start; gap: 32px; }
+}
+
+/* Profile card */
+.profile-card {
+  padding: 32px 26px;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 18px; flex-shrink: 0; width: 100%;
+}
+@media (min-width: 768px) { .profile-card { width: 270px; } }
+
+.profile-avatar {
+  position: relative; width: 110px; height: 110px;
+}
+.avatar-bg {
+  width: 100px; height: 100px; border-radius: 50%;
+  background: rgba(201,150,58,0.1);
+  border: 1.5px solid rgba(201,150,58,0.3);
+  display: flex; align-items: center; justify-content: center;
+  margin: 5px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 40px rgba(201,150,58,0.08);
+}
+.avatar-initials {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+}
+.avatar-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1px dashed rgba(201,150,58,0.25);
+  animation: slowspin 20s linear infinite;
+}
+@keyframes slowspin { to { transform: rotate(360deg); } }
+
+.profile-meta { display: flex; flex-direction: column; gap: 4px; }
+.profile-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 600; color: var(--txt-primary);
+}
+.profile-role { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; }
+.profile-company {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--txt-muted);
+}
+
+.profile-contacts {
+  width: 100%; display: flex; flex-direction: column; gap: 7px;
+  padding-top: 16px; border-top: 1px solid rgba(201,150,58,0.1);
+}
+.profile-contact-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.77rem; color: var(--txt-secondary);
+  text-decoration: none; padding: 8px 12px; border-radius: 10px;
+  background: rgba(255,245,210,0.04);
+  border: 1px solid rgba(201,150,58,0.1);
+  transition: background 0.2s, border-color 0.2s;
+}
+.profile-contact-item:hover {
+  background: rgba(255,245,210,0.08);
+  border-color: rgba(201,150,58,0.25);
+  color: var(--txt-gold);
+}
+.profile-contact-item svg { color: var(--g2); flex-shrink: 0; }
+
+/* Story */
+.about-story { flex: 1; padding-top: 4px; }
+.story-lead {
+  font-size: 1.05rem; color: var(--txt-primary);
+  line-height: 1.72; margin-bottom: 18px; font-style: italic;
+}
+.story-body {
+  font-size: 0.9rem; color: var(--txt-secondary);
+  line-height: 1.78; margin-bottom: 14px;
+}
+
+/* Skills */
+.skills-block { margin-bottom: 64px; }
+.skills-list { display: flex; flex-direction: column; gap: 20px; }
+.skill-meta {
+  display: flex; justify-content: space-between; margin-bottom: 7px;
+}
+.skill-name { font-size: 0.875rem; color: var(--txt-primary); font-weight: 500; }
+.skill-pct { font-size: 0.78rem; font-weight: 700; }
+.skill-track {
+  height: 4px; background: rgba(255,245,210,0.06);
+  border-radius: 2px; overflow: hidden;
+}
+.skill-bar {
+  height: 100%; background: var(--gold-grad); border-radius: 2px;
+  box-shadow: 0 0 10px rgba(201,150,58,0.35);
+}
+
+/* Values */
+.values-grid {
+  display: grid; grid-template-columns: 1fr; gap: 12px;
+}
+@media (min-width: 600px) { .values-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.value-card {
+  padding: 26px 22px; display: flex; flex-direction: column; gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-deep), var(--shadow-glow);
+  border-color: rgba(201,150,58,0.3);
+}
+.value-icon { font-size: 1.3rem; color: var(--g3); }
+.value-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 600; color: var(--txt-primary);
+}
+.value-desc { font-size: 0.84rem; color: var(--txt-secondary); line-height: 1.65; }

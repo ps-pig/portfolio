@@ -1,0 +1,105 @@
+/* ── SPATIAL BOTTOM NAV ──
+   Floats above the content like a Vision Pro control strip
+   Dark frosted glass pill, gold center orb, spring animations */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  width: calc(100% - 32px);
+  max-width: 440px;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.6));
+}
+
+.bottom-nav-track {
+  display: flex; align-items: center; justify-content: space-around;
+  /* Dark translucent glass — the core spatial quality */
+  background: rgba(22, 18, 10, 0.82);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(201,150,58,0.22);
+  border-radius: 26px;
+  padding: 6px 8px;
+  padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+  /* Layered depth shadows */
+  box-shadow:
+    0 2px 0 rgba(255,245,210,0.08) inset,        /* top light catch */
+    0 -1px 0 rgba(201,150,58,0.1) inset,          /* bottom gold tint */
+    0 12px 40px rgba(0,0,0,0.65),
+    0 2px 8px rgba(0,0,0,0.5),
+    0 0 0 0.5px rgba(201,150,58,0.15);             /* hairline outer */
+}
+
+.bnav-btn {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px;
+  background: none; border: none; cursor: pointer;
+  color: rgba(180,155,110,0.5);
+  padding: 7px 8px; border-radius: 18px;
+  position: relative; transition: color 0.2s;
+  flex: 1; min-height: 56px;
+}
+.bnav-btn.active { color: var(--txt-primary); }
+.bnav-btn:hover:not(.active):not(.center) { color: var(--txt-secondary); }
+
+/* Active pill glow behind icon */
+.bnav-bg {
+  position: absolute; inset: 0; border-radius: 18px;
+  background: rgba(255,245,210,0.08);
+  border: 1px solid rgba(201,150,58,0.2);
+  box-shadow: 0 0 16px rgba(201,150,58,0.1), var(--inset-top);
+  z-index: 0;
+}
+
+.bnav-icon {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s;
+}
+.bnav-btn.active .bnav-icon { transform: translateY(-1px); }
+
+.bnav-label {
+  position: relative; z-index: 1;
+  font-size: 9.5px; font-family: 'Inter', sans-serif;
+  font-weight: 500; letter-spacing: 0.04em;
+}
+
+/* ── CENTER ORB — the signature spatial element ── */
+.bnav-btn.center {
+  flex: 1.1; margin-top: -20px; color: #1a0e00;
+}
+
+.center-orb {
+  width: 58px; height: 58px; border-radius: 18px;
+  background: var(--gold-grad);
+  display: flex; align-items: center; justify-content: center;
+  /* Multi-layer glow — makes it look like it's lit from within */
+  box-shadow:
+    0 0 0 1px rgba(255,248,210,0.15) inset,        /* inner highlight ring */
+    0 6px 28px rgba(160,100,20,0.55),
+    0 2px 8px rgba(0,0,0,0.4),
+    0 0 40px rgba(201,150,58,0.2);                  /* ambient glow */
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+}
+.center-orb::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(255,255,255,0.32) 0%, transparent 52%);
+  border-radius: 18px;
+}
+.center-orb-inner { position: relative; z-index: 1; }
+
+.bnav-btn.center.active .center-orb,
+.bnav-btn.center:hover .center-orb {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow:
+    0 0 0 1px rgba(255,248,210,0.2) inset,
+    0 10px 36px rgba(160,100,20,0.65),
+    0 4px 12px rgba(0,0,0,0.5),
+    0 0 60px rgba(201,150,58,0.3);
+}
+
+@media (min-width: 768px) { .bottom-nav { display: none; } }
